@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>example</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                color: #211c00;
+                background-color: #e5fbfc;
+            }
+            main {
+                flex: 1;
+                margin-left: 20px;
+            }
+            .sidebar {
+                width: 250px;
+                position: sticky;
+                top: 0;
+                padding-top: 20px;
+                height: 100vh;
+                overflow-y: auto;
+                background-color: #1c1c1c;
+            }
+            .sidebar a {
+                display: block;
+                color: white;
+                padding: 5px;
+                text-decoration: none;
+                transition-duration: 300ms;
+            }
+            .sidebar a:hover {
+                background-color: #e5fbfc;
+                color: black;
+            }
+            code {
+                padding: 2px 4px;
+                border-radius: 4px;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 4px;
+                overflow-x: auto;
+            }
+            .madeby {
+                color: #333;
+                position: fixed;
+                right: 10px;
+                bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <div id="content"><h1>Hello my friends</h1>
+<p>by aapelix</p>
+<h2>helo there mate, just testing</h2>
+<p>Lorem ipsum dolor sit amet conseucter aloasdikasokdapsd
+asdkoapsodkaskdpoaksd</p>
+<h2>amogus is sus</h2>
+<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+<h1>A new chapter of the TEXT</h1>
+<h1>Hello my friends</h1>
+<p>by aapelix</p>
+<h2>helo there mate, just testing</h2>
+<p>Lorem ipsum dolor sit amet conseucter aloasdikasokdapsd
+asdkoapsodkaskdpoaksd</p>
+<h3>amogus is sus</h3>
+<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+<h1>A new chapter of the TEXT</h1>
+<h1>Hello my friends</h1>
+<p>by aapelix</p>
+<h2>helo there mate, just testing</h2>
+<p>Lorem ipsum dolor sit amet conseucter aloasdikasokdapsd
+asdkoapsodkaskdpoaksd</p>
+<h2>amogus is sus</h2>
+<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+<h1>A new chapter of the TEXT</h1>
+</div>
+        </main>
+        <aside class="sidebar">
+            <nav id="toc"></nav>
+        </aside>
+        <a href="https://aapelix.dev" class="madeby">made by aapelix</a>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const toc = document.getElementById("toc");
+                const content = document.getElementById("content");
+                let tocHtml = "";
+                content
+                    .querySelectorAll("h1, h2, h3, h4, h5, h6")
+                    .forEach((header) => {
+                        const id = header.textContent
+                            .replace(/\s+/g, "-")
+                            .toLowerCase();
+                        header.id = id; // Set the ID for the header
+                        const level = parseInt(header.tagName.substring(1));
+                        tocHtml += `<a href="#${id}" style="margin-left: ${level * 10}px;">${header.textContent}</a>\n`;
+                    });
+                toc.innerHTML = tocHtml;
+            });
+        </script>
+    </body>
+</html>
